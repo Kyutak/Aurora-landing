@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         {
           email,
           attributes: { FIRSTNAME: name },
-          listIds: [2],  // ID da lista no Brevo
+          listIds: [8],  // ID da lista no Brevo
         },
         {
           headers: {
