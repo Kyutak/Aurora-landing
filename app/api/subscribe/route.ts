@@ -14,7 +14,6 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         email,
-        attributes: { nome: name },
         listIds: [8], // ID da sua lista
         updateEnabled: true,
       }),
