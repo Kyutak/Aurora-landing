@@ -12,51 +12,48 @@ export function HeroSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
   const [errorMessage, setErrorMessage] = useState("")
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus("idle")
     setErrorMessage("")
-
+  
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ email, name }),
       })
-
-      const text = await response.text()
-      let data: any = null
-
-      if (text) {
-        try {
-          data = JSON.parse(text)
-        } catch {
-          data = null
-        }
-      }
-
+  
       if (!response.ok) {
-        console.error("BACKEND ERROR:", data || text)
+        const data = await response.json()
         setSubmitStatus("error")
-        setErrorMessage(data?.message || "Erro ao processar solicitação")
+        setErrorMessage(data.message || "Erro ao processar solicitação")
         return
       }
-
-      setSubmitStatus("success")
-      setName("")
-      setEmail("")
-      setTimeout(() => setSubmitStatus("idle"), 5000)
-
+  
+      const data = await response.json()
+  
+      if (data.success) {
+        setSubmitStatus("success")
+        setName("")
+        setEmail("")
+        setTimeout(() => setSubmitStatus("idle"), 5000)
+      } else {
+        setSubmitStatus("error")
+        setErrorMessage(data.message || "Erro ao processar solicitação")
+      }
     } catch (error) {
-      console.error("Error submitting form:", error)
+      console.error("[v0] Error submitting form:", error)
       setSubmitStatus("error")
       setErrorMessage("Erro de conexão. Tente novamente.")
     } finally {
       setIsSubmitting(false)
     }
   }
+
 
   return (
     <section
@@ -113,9 +110,7 @@ export function HeroSection() {
               disabled={isSubmitting}
               className="relative w-full h-12 text-base bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:shadow-2xl transition-all duration-300 overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <span className="relative z-10">
-                {isSubmitting ? "Enviando..." : "Quero entrar na lista de espera"}
-              </span>
+              <span className="relative z-10">{isSubmitting ? "Enviando..." : "Quero entrar na lista de espera"}</span>
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
             </Button>
 
@@ -132,9 +127,7 @@ export function HeroSection() {
             )}
 
             {submitStatus === "idle" && (
-              <p className="text-xs text-muted-foreground">
-                Seja um dos primeiros. Garanta seu acesso exclusivo
-              </p>
+              <p className="text-xs text-muted-foreground">Seja um dos primeiros. Garanta seu acesso exclusivo </p>
             )}
           </form>
         </div>
