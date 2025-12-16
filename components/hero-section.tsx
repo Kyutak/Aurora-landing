@@ -58,7 +58,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="font-bold tracking-tight text-foreground text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl my-5"
+      className="relative overflow-hidden bg-[linear-gradient(189deg,_#ffffff_0%,_#d6fff7_50%,_#ffffff_100%)] px-4 py-24 sm:px-6 md:py-32 lg:py-40"
       aria-labelledby="hero-heading"
     >
       <BackgroundBeams className="absolute inset-0" />
@@ -67,7 +67,7 @@ export function HeroSection() {
         <div className="text-center animate-fade-in-up space-y-0.5 my-[-39px]">
           <h1
             id="hero-heading"
-            className="font-bold tracking-tight text-foreground text-[2.4rem] sm:text-5xl md:text-6xl lg:text-7xl my-5"
+            className="font-bold tracking-tight text-foreground text-balance sm:text-5xl md:text-6xl lg:text-7xl text-5xl my-5"
           >
             Cuidado inteligente para{" "}
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
@@ -76,7 +76,7 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed max-w-2xl mx-auto my-[23px] py-0">
+          <p className="text-lg text-muted-foreground text-pretty leading-relaxed sm:text-xl md:text-2xl max-w-2xl mx-auto my-[23px] py-0">
             {"Rotinas e funções totalmente personalizáveis. Menos preocupação para você, mais autonomia para o idoso"}
           </p>
 
