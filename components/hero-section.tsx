@@ -19,41 +19,38 @@ export function HeroSection() {
     setErrorMessage("")
   
     try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, name }),
-      })
-  
-      if (!response.ok) {
-        const data = await response.json()
-        setSubmitStatus("error")
-        setErrorMessage(data.message || "Erro ao processar solicitação")
-        return
+     const response = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, name }),
+    })
+    
+    const text = await response.text()
+    let data: any = null
+    
+    if (text) {
+      try {
+        data = JSON.parse(text)
+      } catch {
+        throw new Error("Resposta inválida do servidor")
       }
-  
-      const data = await response.json()
-  
-      if (data.success) {
-        setSubmitStatus("success")
-        setName("")
-        setEmail("")
-        setTimeout(() => setSubmitStatus("idle"), 5000)
-      } else {
-        setSubmitStatus("error")
-        setErrorMessage(data.message || "Erro ao processar solicitação")
-      }
-    } catch (error) {
-      console.error("[v0] Error submitting form:", error)
-      setSubmitStatus("error")
-      setErrorMessage("Erro de conexão. Tente novamente.")
-    } finally {
-      setIsSubmitting(false)
     }
-  }
-
+    
+    if (!response.ok) {
+      setSubmitStatus("error")
+      setErrorMessage(data?.message || "Erro ao processar solicitação")
+      return
+    }
+    
+    if (data?.success) {
+      setSubmitStatus("success")
+      setName("")
+      setEmail("")
+      setTimeout(() => setSubmitStatus("idle"), 5000)
+    } else {
+      setSubmitStatus("error")
+      setErrorMessage(data?.message || "Erro ao processar solicitação")
+    }
 
   return (
     <section
