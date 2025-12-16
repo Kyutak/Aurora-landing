@@ -8,9 +8,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Cuidar - Assistente para Cuidado de Idosos",
+  title: "Aurora - Assistente para Cuidado de Idosos",
   description:
-    "Seu assistente para cuidar de quem você ama, sem complicação. Lembretes automatizados, emergências e rotina mais segura.",
+    "Seu assistente para cuidar de quem você ama. Lembretes automatizados, emergências e rotina mais segura.",
   icons: {
     icon: [
       {
