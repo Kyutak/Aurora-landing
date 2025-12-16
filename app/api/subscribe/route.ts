@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,17 +12,20 @@ export async function POST(req: NextRequest) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "api-key": process.env.BREVO_API_KEY,
+        "api-key": process.env.BREVO_API_KEY!,
       },
       body: JSON.stringify({
         email,
-        attributes: { NOME: name },
+        attributes: { FIRSTNAME: name },
         listIds: [7], // ID da sua lista
         updateEnabled: true,
       }),
     });
 
     const data = await response.json();
+
+    // Logando a resposta da API externa
+    console.log("Resposta da API do Brevo:", data);
 
     if (!response.ok) {
       return NextResponse.json(data, { status: response.status });
@@ -36,10 +39,8 @@ export async function POST(req: NextRequest) {
       console.error("Erro ao processar inscrição:", error.message);
       return NextResponse.json({ message: "Erro no servidor.", error: error.message }, { status: 500 });
     } else {
-      // Se o erro não for uma instância de Error
       console.error("Erro desconhecido:", error);
       return NextResponse.json({ message: "Erro desconhecido", error: "Erro desconhecido" }, { status: 500 });
     }
   }
 }
-
