@@ -58,7 +58,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-[linear-gradient(189deg,_#ffffff_0%,_#d6fff7_50%,_#ffffff_100%)] px-4 py-24 sm:px-6 md:py-32 lg:py-40"
+      className="font-bold tracking-tight text-foreground text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl my-5"
       aria-labelledby="hero-heading"
     >
       <BackgroundBeams className="absolute inset-0" />
