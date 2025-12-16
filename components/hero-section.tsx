@@ -12,13 +12,12 @@ export function HeroSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
   const [errorMessage, setErrorMessage] = useState("")
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus("idle")
     setErrorMessage("")
-
+  
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",
@@ -27,9 +26,16 @@ export function HeroSection() {
         },
         body: JSON.stringify({ email, name }),
       })
-
+  
+      if (!response.ok) {
+        const data = await response.json()
+        setSubmitStatus("error")
+        setErrorMessage(data.message || "Erro ao processar solicitação")
+        return
+      }
+  
       const data = await response.json()
-
+  
       if (data.success) {
         setSubmitStatus("success")
         setName("")
@@ -47,6 +53,7 @@ export function HeroSection() {
       setIsSubmitting(false)
     }
   }
+
 
   return (
     <section
