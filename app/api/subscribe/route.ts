@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
         attributes: {
           NOME: name.trim(),
         },
-        listIds: [8], // ID da sua lista
+        listIds: [7], // ID da sua lista
         updateEnabled: true,
       }),
     });
