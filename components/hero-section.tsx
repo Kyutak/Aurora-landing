@@ -1,10 +1,10 @@
 "use client"
-
-import { useState } from "react"
-import type React from "react"
 import { Button } from "@/components/ui/button"
+import type React from "react"
+
 import { Input } from "@/components/ui/input"
 import { BackgroundBeams } from "@/components/ui/background-beams"
+import { useState } from "react"
 
 export function HeroSection() {
   const [name, setName] = useState("")
@@ -15,13 +15,6 @@ export function HeroSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    if (!name.trim() || !email.trim()) {
-      setSubmitStatus("error")
-      setErrorMessage("Preencha nome e e-mail corretamente.")
-      return
-    }
-
     setIsSubmitting(true)
     setSubmitStatus("idle")
     setErrorMessage("")
@@ -30,10 +23,7 @@ export function HeroSection() {
       const response = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim(),
-        }),
+        body: JSON.stringify({ email, name }),
       })
 
       const text = await response.text()
@@ -43,12 +33,15 @@ export function HeroSection() {
         try {
           data = JSON.parse(text)
         } catch {
-          throw new Error("Resposta inválida do servidor")
+          data = null
         }
       }
 
       if (!response.ok) {
-        throw new Error(data?.message || "Erro ao processar solicitação")
+        console.error("BACKEND ERROR:", data || text)
+        setSubmitStatus("error")
+        setErrorMessage(data?.message || "Erro ao processar solicitação")
+        return
       }
 
       setSubmitStatus("success")
@@ -56,12 +49,10 @@ export function HeroSection() {
       setEmail("")
       setTimeout(() => setSubmitStatus("idle"), 5000)
 
-    } catch (err) {
-      console.error("Error submitting form:", err)
+    } catch (error) {
+      console.error("Error submitting form:", error)
       setSubmitStatus("error")
-      setErrorMessage(
-        err instanceof Error ? err.message : "Erro de conexão. Tente novamente."
-      )
+      setErrorMessage("Erro de conexão. Tente novamente.")
     } finally {
       setIsSubmitting(false)
     }
@@ -76,64 +67,73 @@ export function HeroSection() {
       <BackgroundBeams className="absolute inset-0" />
 
       <div className="mx-auto max-w-4xl relative z-10">
-        <div className="text-center animate-fade-in-up space-y-1">
+        <div className="text-center animate-fade-in-up space-y-0.5 my-[-39px]">
           <h1
             id="hero-heading"
-            className="font-bold tracking-tight text-foreground text-balance text-5xl sm:text-6xl lg:text-7xl my-5"
+            className="font-bold tracking-tight text-foreground text-balance sm:text-5xl md:text-6xl lg:text-7xl text-5xl my-5"
           >
             Cuidado inteligente para{" "}
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              quem cuidou <br /> de você
+              {"quem cuidou"} <br />
+              {"de você"}
             </span>
           </h1>
 
-          <p className="text-lg text-muted-foreground sm:text-xl md:text-2xl max-w-2xl mx-auto my-6">
-            Rotinas e funções totalmente personalizáveis. Menos preocupação para você,
-            mais autonomia para o idoso.
+          <p className="text-lg text-muted-foreground text-pretty leading-relaxed sm:text-xl md:text-2xl max-w-2xl mx-auto my-[23px] py-0">
+            {"Rotinas e funções totalmente personalizáveis. Menos preocupação para você, mais autonomia para o idoso"}
           </p>
 
           <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 pt-4">
-            <Input
-              type="text"
-              placeholder="Seu nome"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              disabled={isSubmitting}
-              required
-            />
-
-            <Input
-              type="email"
-              placeholder="Seu melhor e-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={isSubmitting}
-              required
-            />
+            <div className="space-y-3">
+              <Input
+                type="text"
+                placeholder="Seu nome"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                disabled={isSubmitting}
+                className="h-12 text-base bg-background/80 backdrop-blur-sm border-border/50 focus:border-primary"
+                aria-label="Seu nome"
+              />
+              <Input
+                type="email"
+                placeholder="Seu melhor e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={isSubmitting}
+                className="h-12 text-base bg-background/80 backdrop-blur-sm border-border/50 focus:border-primary"
+                aria-label="Seu e-mail"
+              />
+            </div>
 
             <Button
               type="submit"
+              size="lg"
               disabled={isSubmitting}
-              className="w-full h-12"
+              className="relative w-full h-12 text-base bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:shadow-2xl transition-all duration-300 overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? "Enviando..." : "Quero entrar na lista de espera"}
+              <span className="relative z-10">
+                {isSubmitting ? "Enviando..." : "Quero entrar na lista de espera"}
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
             </Button>
 
             {submitStatus === "success" && (
-              <p className="text-sm text-green-600">
+              <p className="text-sm text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/20 p-3 rounded-lg">
                 Sucesso! Você entrou na lista de espera.
               </p>
             )}
 
             {submitStatus === "error" && (
-              <p className="text-sm text-red-600">
+              <p className="text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/20 p-3 rounded-lg">
                 {errorMessage}
               </p>
             )}
 
             {submitStatus === "idle" && (
               <p className="text-xs text-muted-foreground">
-                Seja um dos primeiros. Garanta seu acesso exclusivo.
+                Seja um dos primeiros. Garanta seu acesso exclusivo
               </p>
             )}
           </form>
