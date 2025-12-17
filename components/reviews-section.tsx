@@ -95,12 +95,12 @@ export function ReviewsSection() {
       </div>
 
       <div className="relative flex flex-col items-center justify-center gap-4 overflow-hidden">
-        <Marquee pauseOnHover className="[--duration:60s]">
+        <Marquee pauseOnHover className="[--duration:40s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:60s]">
+        <Marquee reverse pauseOnHover className="[--duration:40s]">
           {secondRow.map((review) => (
             <ReviewCard key={review.name} {...review} />
           ))}
