@@ -34,7 +34,7 @@ const benefits = [
 export function BenefitsSection() {
   return (
     <section
-      className="px-4 sm:py-24 sm:px-6 lg:px-8 border-b border-border/40 py-[43px]"
+      className="px-4 pt-6 pb-10 sm:py-24 sm:px-6 lg:px-8 border-b border-border/40"
       aria-labelledby="benefits-heading"
     >
       <div className="mx-auto max-w-7xl">
