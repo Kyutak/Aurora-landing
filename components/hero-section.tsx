@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import type React from "react"
-
+import { ChevronDown } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { BackgroundBeams } from "@/components/ui/background-beams"
 import { useState } from "react"
@@ -130,6 +130,17 @@ export function HeroSection() {
               <p className="text-xs text-muted-foreground">Seja um dos primeiros. Garanta seu acesso exclusivo </p>
             )}
           </form>
+          <div className="flex justify-center mt-8 sm:hidden">
+            <ChevronDown
+              className="
+                w-8 h-8
+                text-muted-foreground
+                animate-bounce-slow
+                opacity-70
+              "
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </div>
     </section>
