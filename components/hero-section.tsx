@@ -137,6 +137,8 @@ export function HeroSection() {
                 text-muted-foreground
                 animate-bounce-slow
                 opacity-70
+                animate-fade-in
+                delay-700
               "
               aria-hidden="true"
             />
