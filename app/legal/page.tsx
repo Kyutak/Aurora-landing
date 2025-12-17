@@ -23,7 +23,6 @@ export default function LegalPage() {
         })
       }
     }
-    window.scrollTo(0, 0)
   }, [])
 
   const [formData, setFormData] = useState({
