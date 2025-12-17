@@ -31,7 +31,7 @@ export function Header() {
           </Button>
           <Button
             onClick={scrollToHero}
-            className="text-sm bg-gradient-to-r from-blue-400 to-blue-600 hover:opacity-90"
+            className="text-xs sm:text-sm bg-gradient-to-r from-blue-400 to-blue-600 hover:opacity-90"
           >
             Quero uma demo
           </Button>
