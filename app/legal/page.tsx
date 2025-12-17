@@ -193,89 +193,11 @@ export default function LegalPage() {
           </p>
 
           <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 rounded-2xl p-6 sm:p-8 border">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground font-medium">
-                  Nome completo
-                </Label>
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder="Seu nome"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  className="bg-background/50 backdrop-blur"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground font-medium">
-                  E-mail
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="seu@email.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  className="bg-background/50 backdrop-blur"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-foreground font-medium">
-                  Mensagem
-                </Label>
-                <Textarea
-                  id="message"
-                  placeholder="Escreva sua mensagem aqui..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  rows={6}
-                  className="bg-background/50 backdrop-blur resize-none"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <>Enviando...</>
-                ) : (
-                  <>
-                    <Send className="mr-2 h-5 w-5" />
-                    Enviar mensagem
-                  </>
-                )}
-              </Button>
-
-              {submitStatus === "success" && (
-                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400 text-center">
-                  Mensagem enviada com sucesso! Retornaremos em breve.
-                </div>
-              )}
-
-              {submitStatus === "error" && (
-                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400 text-center">
-                  {errorMessage}
-                </div>
-              )}
-            </form>
-
             <div className="mt-8 pt-8 border-t flex items-center justify-center gap-2 text-muted-foreground">
               <Mail className="h-5 w-5" />
               <span>ou envie um e-mail para: </span>
-              <a href="mailto:contato@aurora.com" className="text-primary hover:underline font-medium">
-                contato@aurora.com
+              <a href="mailto:auroraai.enterprise@gmail.com" className="text-primary hover:underline font-medium">
+                auroraai.enterprise@gmail.com
               </a>
             </div>
           </div>
