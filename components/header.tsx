@@ -26,14 +26,14 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-4">
-          <Button variant="ghost" className="text-sm">
+          <Button variant="ghost" className="text-xs sm:text-sm px-3 py-2">
             <Link href="/modos">Saiba mais</Link>
           </Button>
           <Button
             onClick={scrollToHero}
             className="text-xs sm:text-sm bg-gradient-to-r from-blue-400 to-blue-600 hover:opacity-90"
           >
-            Quero uma demo
+            Garantir demo
           </Button>
         </div>
       </nav>
