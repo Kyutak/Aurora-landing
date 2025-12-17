@@ -58,7 +58,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-[linear-gradient(189deg,_#ffffff_0%,_#d6fff7_50%,_#ffffff_100%)] px-4 py-32 sm:px-6 sm:py-24 md:py-32 lg:py-40"
+      className="relative overflow-hidden bg-[linear-gradient(189deg,_#ffffff_0%,_#d6fff7_50%,_#ffffff_100%)] px-4 py-24 sm:px-6 md:py-32 lg:py-40"
       aria-labelledby="hero-heading"
     >
       <BackgroundBeams className="absolute inset-0" />
@@ -67,7 +67,7 @@ export function HeroSection() {
         <div className="text-center animate-fade-in-up space-y-0.5 my-[-39px]">
           <h1
             id="hero-heading"
-            className="font-bold tracking-tight text-foreground text-balance text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-5xl my-5"
+            className="font-bold tracking-tight text-foreground text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-5"
           >
             Cuidado inteligente para{" "}
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
