@@ -5,10 +5,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer
-      className="border-t bg-gradient-to-br from-secondary/5 via-background to-primary/5 px-4 py-10 sm:px-6 sm:py-12"
-      role="contentinfo"
-    >
+    <footer className="border-t bg-gradient-to-br from-secondary/5 via-background to-primary/5 px-4 py-10 sm:px-6 sm:py-12" role="contentinfo">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="text-center md:text-left">
@@ -20,20 +17,20 @@ export function Footer() {
             </div>
             <p className="text-sm text-muted-foreground mt-2">Assistente para cuidado de idosos</p>
           </div>
-
+    
           <nav className="flex flex-wrap justify-center gap-4 sm:gap-6" aria-label="Links do rodapé">
-            <Link href="/legal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="#termos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Termos de Uso
             </Link>
-            <Link href="/legal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="#privacidade" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Privacidade
             </Link>
-            <Link href="/legal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="#contato" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Contato
             </Link>
           </nav>
         </div>
-
+    
         <div className="mt-8 border-t pt-8 text-center">
           <p className="text-sm text-muted-foreground">© {currentYear} Aurora. Todos os direitos reservados.</p>
         </div>
