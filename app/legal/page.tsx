@@ -12,6 +12,17 @@ import { Label } from "@/components/ui/label"
 
 export default function LegalPage() {
   useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''))
+      if (element) {
+        // Rola até a seção, levando em consideração a altura do cabeçalho
+        window.scrollTo({
+          top: element.offsetTop - 80, // Ajuste o valor conforme necessário para o cabeçalho fixo
+          behavior: 'smooth',
+        })
+      }
+    }
     window.scrollTo(0, 0)
   }, [])
 
