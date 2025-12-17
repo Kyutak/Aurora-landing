@@ -205,7 +205,6 @@ export default function LegalPage() {
           <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 rounded-2xl p-6 sm:p-8 border">
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
               <Mail className="h-5 w-5" />
-              <span>envie um e-mail para: </span>
               <a href="mailto:auroraai.enterprise@gmail.com?subject=Assunto%20do%20E-mail" className="text-primary hover:underline font-medium">
                 auroraai.enterprise@gmail.com
               </a>
