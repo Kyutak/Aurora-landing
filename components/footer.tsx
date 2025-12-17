@@ -19,13 +19,13 @@ export function Footer() {
           </div>
     
           <nav className="flex flex-wrap justify-center gap-4 sm:gap-6" aria-label="Links do rodapé">
-            <Link href="#termos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/legal#termos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Termos de Uso
             </Link>
-            <Link href="#privacidade" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/legal#privacidade" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Privacidade
             </Link>
-            <Link href="#contato" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/legal#contato" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Contato
             </Link>
           </nav>
