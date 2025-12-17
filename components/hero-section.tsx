@@ -59,7 +59,7 @@ export function HeroSection() {
     <section
       id="hero"
       className="
-        relative overflow-hidden bg-[linear-gradient(189deg,_#ffffff_0%,_#b8fcf0_50%,_#ffffff_100%)]
+        relative overflow-hidden bg-[linear-gradient(189deg,_#ffffff_0%,_#c4fff5_50%,_#ffffff_100%)]
         px-4 pt-28 pb-14
         sm:px-6
         sm:pt-32 sm:pb-20
