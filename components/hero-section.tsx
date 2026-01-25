@@ -59,7 +59,6 @@ export function HeroSection() {
     <section
       id="hero"
       className="
-        relative overflow-hidden bg-[linear-gradient(189deg,_#ffffff_0%,_#c4fff5_50%,_#ffffff_100%)]
         px-4 pt-28 pb-14
         sm:px-6
         sm:pt-32 sm:pb-20
@@ -75,10 +74,10 @@ export function HeroSection() {
         muted
         playsInline
       >
-        <source src="/videos/familia.mp4" type="video/mp4" />
+        <source src="/familia.mp4" type="video/mp4" />
       </video>
       
-      <div className="absolute inset-0 bg-white/60 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-[linear-gradient(189deg,_#ffffff_0%,_#c4fff5_50%,_#ffffff_100%)] opacity-70" />
       
       <BackgroundBeams className="absolute inset-0" />
 
