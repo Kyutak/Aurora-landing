@@ -59,6 +59,8 @@ export function HeroSection() {
     <section
       id="hero"
       className="
+        relative overflow-hidden
+        max-w-full
         px-4 pt-28 pb-14
         sm:px-6
         sm:pt-32 sm:pb-20
@@ -79,7 +81,7 @@ export function HeroSection() {
       
       <div className="absolute inset-0 bg-[linear-gradient(189deg,_#ffffff_0%,_#c4fff5_50%,_#ffffff_100%)] opacity-70" />
       
-      <BackgroundBeams className="absolute inset-0" />
+      <BackgroundBeams className="absolute inset-0 max-w-full overflow-hidden pointer-events-none" />
 
       <div className="mx-auto max-w-4xl relative z-10">
         <div className="text-center animate-fade-in-up space-y-0.5 my-[-39px]">
