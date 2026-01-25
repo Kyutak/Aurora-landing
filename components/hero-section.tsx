@@ -75,7 +75,7 @@ export function HeroSection() {
         muted
         playsInline
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/familia.mp4" type="video/mp4" />
       </video>
       
       <div className="absolute inset-0 bg-white/60 backdrop-blur-sm" />
