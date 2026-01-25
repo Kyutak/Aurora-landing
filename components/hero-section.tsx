@@ -74,7 +74,7 @@ export function HeroSection() {
         muted
         playsInline
       >
-        <source src="/familia.mp4" type="video/mp4" />
+        <source src="/familia.MP4" type="video/mp4" />
       </video>
       
       <div className="absolute inset-0 bg-[linear-gradient(189deg,_#ffffff_0%,_#c4fff5_50%,_#ffffff_100%)] opacity-70" />
