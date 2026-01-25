@@ -68,6 +68,18 @@ export function HeroSection() {
       "
       aria-labelledby="hero-heading"
     >
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-20"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
+      
+      <div className="absolute inset-0 bg-white/60 backdrop-blur-sm" />
+      
       <BackgroundBeams className="absolute inset-0" />
 
       <div className="mx-auto max-w-4xl relative z-10">
