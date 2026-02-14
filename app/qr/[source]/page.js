@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation"
+import HomePage from "@/app/page"
 
-export default function Page() {
-  redirect("/")
+export default function QrPage() {
+  return <HomePage />
 }
