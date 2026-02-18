@@ -5,7 +5,7 @@ export function middleware(request) {
   const src = url.searchParams.get('src')
 
   if (src) {
-    return NextResponse.rewrite(new URL(`/qr/${src}`, request.url))
+    return NextResponse.redirect(new URL(`/qr/${src}`, request.url))
   }
 
   return NextResponse.next()
