@@ -71,7 +71,7 @@ export function HeroSection() {
     >
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-30"
-        autoPlay
+        preload="auto"
         loop
         muted
         playsInline
