@@ -7,9 +7,10 @@ import { BackgroundBeams } from "@/components/ui/background-beams"
 import { useState } from "react"
 import { useEffect, useRef } from "react"
 
-const videoRef = useRef<HTMLVideoElement>(null)
-
-useEffect(() => {
+export function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  
+  useEffect(() => {
   const video = videoRef.current
   if (!video) return
 
@@ -22,8 +23,6 @@ useEffect(() => {
 
   return () => clearTimeout(timeout)
 }, [])
-
-export function HeroSection() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
