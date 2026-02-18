@@ -5,24 +5,8 @@ import { ChevronDown } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { BackgroundBeams } from "@/components/ui/background-beams"
 import { useState } from "react"
-import { useEffect, useRef } from "react"
 
 export function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  
-  useEffect(() => {
-  const video = videoRef.current
-  if (!video) return
-
-  video.muted = true
-  video.playsInline = true
-
-  const timeout = setTimeout(() => {
-    video.play().catch(() => {})
-  }, 300)
-
-  return () => clearTimeout(timeout)
-}, [])
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -86,9 +70,8 @@ export function HeroSection() {
       aria-labelledby="hero-heading"
     >
       <video
-        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover opacity-30"
-        preload="auto"
+        autoPlay
         loop
         muted
         playsInline
