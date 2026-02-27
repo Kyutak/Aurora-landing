@@ -12,7 +12,7 @@ export function HowItWorksSection() {
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-lg">
               <UserPlus className="h-8 w-8" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">O familiar cria a conta</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white">Você cria a conta</h3>
           </div>
           <p className="text-white text-base md:text-lg leading-relaxed max-w-2xl">
             Cadastro simples e rápido no app ou web. Configure perfis e preferências em poucos minutos. Defina a rotina
@@ -48,7 +48,7 @@ export function HowItWorksSection() {
             <h3 className="text-2xl md:text-3xl font-bold text-white">A rotina é automatizada</h3>
           </div>
           <p className="text-white text-base md:text-lg leading-relaxed max-w-2xl">
-            Com um clique, os lembretes inteligentes começam a funcionar. Tudo sincronizado entre familiar e idoso.
+            Com um clique, os lembretes inteligentes começam a funcionar. Tudo sincronizado entre cuidador, familiar e idoso.
             Notificações pré-definidas, acompanhamento em tempo real e relatórios automáticos de atividades.
           </p>
         </div>
