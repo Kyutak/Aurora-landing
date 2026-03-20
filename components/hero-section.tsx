@@ -91,8 +91,8 @@ export function HeroSection() {
           >
             Cuidado inteligente para{" "}
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              {"quem cuidou"} <br />
-              {"de você"}
+              {"sua empresa"} <br />
+              {"de cuidados"}
             </span>
           </h1>
 
