@@ -43,10 +43,10 @@ export function BenefitsSection() {
             id="benefits-heading"
             className="sm:text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl text-3xl text-balance leading-tight my-[30px]"
           >
-            Lidar com idosos é difícil. Eles esquecem medicações, horários, refeições — e a família nunca sabe se está tudo bem.
+            Cuidar de idosos exige sensibilidade, preparo e dedicação — e uma gestão eficiente é essencial para garantir qualidade, segurança e bem-estar em cada etapa do atendimento.
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Conheça as nossas soluções. Esteja presente mesmo distante.    
+            Conheça as nossas soluções. Tenha controle e organização da sua gerencia    
           </p>
         </div>
 
